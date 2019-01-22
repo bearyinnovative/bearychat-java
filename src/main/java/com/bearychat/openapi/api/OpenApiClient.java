@@ -19,6 +19,7 @@ public class OpenApiClient {
   private final MessageClient messageClient;
   private final SessionChannelClient sessionChannelClient;
   private final P2pClient p2pClient;
+  private final TeamClient teamClient;
 
   public OpenApiClient(String host, String token) {
     this(new OkHttpClient(), host, token);
@@ -35,6 +36,7 @@ public class OpenApiClient {
     this.messageClient = new MessageClient(this, this.mapper);
     this.sessionChannelClient = new SessionChannelClient(this, this.mapper);
     this.p2pClient = new P2pClient(this, this.mapper);
+    this.teamClient = new TeamClient(this, this.mapper);
   }
 
   public ChannelClient channel() {
@@ -47,6 +49,10 @@ public class OpenApiClient {
 
   public MessageClient message() {
     return this.messageClient;
+  }
+
+  public TeamClient team() {
+    return this.teamClient;
   }
 
   public P2pClient p2p() {
