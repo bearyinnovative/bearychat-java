@@ -28,7 +28,7 @@ public class MessageClient {
 
   public Message updateText(String vchannelId, String key, String text) throws IOException {
     final var endpoint = "/v1/message.update_text";
-    final var resp = this.apiClient.newRequest(Method.POST, endpoint, Map.of(
+    final var resp = this.apiClient.newRequest(Method.PATCH, endpoint, Map.of(
             "vchannel_id", vchannelId,
             "message_key", key,
             "text", text
@@ -47,7 +47,7 @@ public class MessageClient {
 
   public Message create(String vchannelId, String text, MessageAttachment[] attachments) throws IOException {
     final var endpoint = "/v1/message.create";
-    final var resp = this.apiClient.newRequest(Method.GET, endpoint, Map.of(
+    final var resp = this.apiClient.newRequest(Method.POST, endpoint, Map.of(
             "vchannel_id", vchannelId,
             "text", text,
             "attachments", attachments
@@ -57,7 +57,7 @@ public class MessageClient {
 
   public Message forward(String vchannelId, String key, String toVchannelId) throws IOException {
     final var endpoint = "/v1/message.forward";
-    final var resp = this.apiClient.newRequest(Method.GET, endpoint, Map.of(
+    final var resp = this.apiClient.newRequest(Method.POST, endpoint, Map.of(
             "vchannel_id", vchannelId,
             "message_key", key,
             "to_vchannel_id", toVchannelId

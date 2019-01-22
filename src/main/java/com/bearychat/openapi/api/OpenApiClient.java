@@ -57,7 +57,7 @@ public class OpenApiClient {
 
     RequestBody body = null;
     if (data != null) {
-      RequestBody
+      body = RequestBody
               .create(MediaType.get("application/json; charset=utf-8"), data);
     }
 
