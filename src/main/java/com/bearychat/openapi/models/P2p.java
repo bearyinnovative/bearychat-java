@@ -2,33 +2,23 @@ package com.bearychat.openapi.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Channel {
+public class P2p {
   @JsonProperty("id")
   private String id;
   @JsonProperty("team_id")
   private String teamId;
   @JsonProperty("vchannel_id")
   private String vchannelId;
-  @JsonProperty("uid")
-  private String userId;
-  @JsonProperty("name")
-  private String name;
-  @JsonProperty("topic")
-  private String topic;
   @JsonProperty("type")
   private String type;
-  @JsonProperty("private")
-  private boolean isPrivate;
-  @JsonProperty("general")
-  private boolean isGeneral;
-  @JsonProperty("is_member")
-  private boolean isMember;
   @JsonProperty("is_active")
   private boolean isActive;
+  @JsonProperty("is_member")
+  private boolean isMember;
   @JsonProperty("member_uids")
   private String[] memberUids;
   @JsonProperty("latest_ts")
-  private Long latestTs;
+  private long latestTs;
 
   public String getId() {
     return id;
@@ -54,60 +44,12 @@ public class Channel {
     this.vchannelId = vchannelId;
   }
 
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getTopic() {
-    return topic;
-  }
-
-  public void setTopic(String topic) {
-    this.topic = topic;
-  }
-
   public String getType() {
     return type;
   }
 
   public void setType(String type) {
     this.type = type;
-  }
-
-  public boolean isPrivate() {
-    return isPrivate;
-  }
-
-  public void setPrivate(boolean aPrivate) {
-    isPrivate = aPrivate;
-  }
-
-  public boolean isGeneral() {
-    return isGeneral;
-  }
-
-  public void setGeneral(boolean general) {
-    isGeneral = general;
-  }
-
-  public boolean isMember() {
-    return isMember;
-  }
-
-  public void setMember(boolean member) {
-    isMember = member;
   }
 
   public boolean isActive() {
@@ -118,6 +60,14 @@ public class Channel {
     isActive = active;
   }
 
+  public boolean isMember() {
+    return isMember;
+  }
+
+  public void setMember(boolean member) {
+    isMember = member;
+  }
+
   public String[] getMemberUids() {
     return memberUids;
   }
@@ -126,11 +76,11 @@ public class Channel {
     this.memberUids = memberUids;
   }
 
-  public Long getLatestTs() {
+  public long getLatestTs() {
     return latestTs;
   }
 
-  public void setLatestTs(Long latestTs) {
+  public void setLatestTs(long latestTs) {
     this.latestTs = latestTs;
   }
 }
