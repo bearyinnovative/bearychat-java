@@ -11,9 +11,11 @@ public class OpenApiClient {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
   private final String host;
   private final OkHttpClient httpClient;
-  private final ChannelClient channelClient;
   private final ObjectMapper mapper;
   private final String token;
+
+  private final ChannelClient channelClient;
+  private final UserClient userClient;
 
   public OpenApiClient(String host, String token) {
     this(new OkHttpClient(), host, token);
@@ -23,12 +25,18 @@ public class OpenApiClient {
     this.host = host;
     this.httpClient = httpClient;
     this.mapper = new ObjectMapper();
-    this.channelClient = new ChannelClient(this, this.mapper);
     this.token = token;
+
+    this.channelClient = new ChannelClient(this, this.mapper);
+    this.userClient = new UserClient(this, this.mapper);
   }
 
   public ChannelClient channel() {
     return this.channelClient;
+  }
+
+  public UserClient user() {
+    return this.userClient;
   }
 
   public Response newRequest(Method method, String endpoint, String data) throws IOException {
