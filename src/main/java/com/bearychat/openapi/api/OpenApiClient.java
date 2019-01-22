@@ -17,6 +17,7 @@ public class OpenApiClient {
   private final ChannelClient channelClient;
   private final UserClient userClient;
   private final MessageClient messageClient;
+  private final SessionChannelClient sessionChannelClient;
 
   public OpenApiClient(String host, String token) {
     this(new OkHttpClient(), host, token);
@@ -31,6 +32,7 @@ public class OpenApiClient {
     this.channelClient = new ChannelClient(this, this.mapper);
     this.userClient = new UserClient(this, this.mapper);
     this.messageClient = new MessageClient(this, this.mapper);
+    this.sessionChannelClient = new SessionChannelClient(this,this.mapper);
   }
 
   public ChannelClient channel() {
@@ -43,6 +45,10 @@ public class OpenApiClient {
 
   public MessageClient message() {
     return this.messageClient;
+  }
+
+  public SessionChannelClient sessionChannel() {
+    return this.sessionChannelClient;
   }
 
   public Response newRequest(Method method, String endpoint, String data) throws IOException {
