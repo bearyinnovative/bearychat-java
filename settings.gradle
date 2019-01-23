@@ -1,3 +1,6 @@
-rootProject.name = 'openapi'
+rootProject.name = 'bearychat-api'
+include 'incoming'
+include 'rtm'
+include 'openapi'
 include 'example'
 

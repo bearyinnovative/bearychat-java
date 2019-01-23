@@ -1,17 +1,9 @@
-Real-Time Message Example
-====
+package com.bearychat.example;
 
-## Echo mentioned message
-
-[source](/src/main/java/com/bearychat/openapi/examples/EchoRtmClient.java)
-
-```java
-package com.bearychat.openapi.examples;
-
-import RtmCallback;
-import RtmClient;
-import RtmListener;
-import RtmMessage;
+import com.bearychat.rtm.RtmCallback;
+import com.bearychat.rtm.RtmClient;
+import com.bearychat.rtm.RtmListener;
+import com.bearychat.rtm.RtmMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.io.IOException;
@@ -53,4 +45,3 @@ public class EchoRtmClient {
     }).run();
   }
 }
-```
